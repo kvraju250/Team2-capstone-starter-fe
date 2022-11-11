@@ -1,5 +1,6 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 function JobRequestGridCards(props) {
@@ -12,12 +13,13 @@ function JobRequestGridCards(props) {
                 {props.jobRequests.map((jobRequest, idx) => (
                     <Col key={idx}>
                         <Card>
-                            <Card.Img variant="top" src="https://via.placeholder.com/300" />
+                            {/* <Card.Img variant="top" src="https://via.placeholder.com/300" /> */}
                             <Card.Body>
                                 <Card.Title>{jobRequest.title}</Card.Title>
                                 <Card.Text>{jobRequest.description}</Card.Text>
                                 <Card.Text>{jobRequest.type}</Card.Text>
                                 <Card.Text>{jobRequest.dateNeeded}</Card.Text>
+                                <Button variant="primary">HelpyourBuddy</Button>
                             </Card.Body>
                         </Card>
                     </Col>

@@ -10,10 +10,10 @@ function CreateApptForm({ handleChange, handleSubmit, formData }) {
 
             <Form onSubmit={handleSubmit}>
 
-                <Form.Group controlId="jobRequestId">
+                <Form.Group controlId="jobRequestID">
                     <Form.Label><strong>JobRequestID:</strong></Form.Label>
                     <Form.Control required minLength="2" onChange={handleChange} value={formData.jobRequestID} type="text" placeholder="Jobreqid" />
-                </Form.Group> 
+                </Form.Group>               
                 <Form.Group controlId="assignedUserEmail">
                     <Form.Label><strong>AssignedUserEmail:</strong></Form.Label>
                     <Form.Control required minLength="2" onChange={handleChange} value={formData.assignedUserEmail} type="text" placeholder="email" />
