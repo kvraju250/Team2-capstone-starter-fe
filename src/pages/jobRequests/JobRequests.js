@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import JobRequestGridCards from "../../components/gridcards/JobRequestGridCards";
 import Header from "../../components/header/Header";
 import { isAuthenticated } from "../../utils/authHelper";
 
@@ -54,6 +55,8 @@ class JobRequests extends Component {
                     }
                 )}
                 </ul>
+
+                <JobRequestGridCards jobRequests={this.state.jobRequests}/>
 
             </div>
         )
