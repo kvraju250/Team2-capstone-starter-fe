@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "../../components/header/Header";
+import { isAuthenticated } from "../../utils/authHelper";
 
 class JobRequests extends Component {
 
@@ -25,7 +26,7 @@ class JobRequests extends Component {
                 console.log(jrData)
                 this.setState(
                     {
-                        jobRequests: jrData  // pets in jobRequests is now equal to jrData from API
+                        jobRequests: jrData  // jobRequests in jobRequests is now equal to jrData from API
                     }
                 )
 
@@ -39,11 +40,11 @@ class JobRequests extends Component {
         return (
             <div className="JobRequests">
 
-                <Header/>
+                <Header isAuthenticated={isAuthenticated()} />
 
                 <h3 className="text-center" >View All Job Requests</h3>
 
-                {/* This is what's currently in pets in state: {JSON.stringify(this.state.pets)} */}
+                {/* This is what's currently in jobRequests in state: {JSON.stringify(this.state.jobRequests)} */}
 
                 {/* map over things and produce JSX */}
 
