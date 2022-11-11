@@ -6,6 +6,7 @@ import Login from "./pages/login/Login";
 import NotFound from "./pages/notFound/NotFound";
 import Register from "./pages/register/Register";
 import UpdateUser from "./pages/updateUser/UpdateUser";
+import JobRequests from "./pages/jobRequests/JobRequests";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Route
           exact
           path="/"
-          component={Home}
+          component={JobRequests}
         />
         <Route
           exact
@@ -35,6 +36,11 @@ function App() {
           exact
           path="/protected"
           component={Protected}
+        />
+        <Route
+          exact
+          path="/home"
+          component={Home}
         />
         <Route
           exact
