@@ -8,6 +8,7 @@ import Register from "./pages/register/Register";
 import UpdateUser from "./pages/updateUser/UpdateUser";
 import JobRequests from "./pages/jobRequests/JobRequests";
 import CreateAppointment from "./pages/appointments/CreateAppointment";
+import CreateJobRequest from "./pages/jobRequests/CreateJobRequest";
 
 function App() {
   return (
@@ -42,6 +43,11 @@ function App() {
           exact
           path="/home"
           component={Home}
+        />
+        <Route
+          exact
+          path="/createjobrequest"
+          component={CreateJobRequest}
         />
          <Route
           exact
