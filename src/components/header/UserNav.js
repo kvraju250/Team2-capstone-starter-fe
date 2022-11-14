@@ -41,6 +41,7 @@ function UserNav(props) {
         <Navbar.Text className="font-weight-bold mx-3">
           Hello, {props.auth.email}
         </Navbar.Text>
+        <Nav.Link as={Link} to="/myjobrequests" href="/myjobrequests">My Job Requests</Nav.Link>
         <Nav.Link as={Link} to="/createjobrequest" href="/createjobrequest">Create Job Request</Nav.Link>
         <Nav.Link as={Link} to={`/updateuser/${props.auth.email}`} href={`/updateuser/${props.auth.email}`}> Edit Profile</Nav.Link>
         <Nav.Link as={Link} to="/home" href="/home">Old Home Page</Nav.Link>
