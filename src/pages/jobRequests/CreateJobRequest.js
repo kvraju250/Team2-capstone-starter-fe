@@ -2,20 +2,22 @@ import React, { Component } from "react";
 import Alert from 'react-bootstrap/Alert';
 import Header from "../../components/header/Header";
 import JobRequestForm from "../../components/jobRequest/JobRequestForm";
-import { generateAuthHeader } from "../../utils/authHelper";
+import { generateAuthHeader, getUserEmail } from "../../utils/authHelper";
 
 class CreateJobRequest extends Component {
+
+    userEmail = getUserEmail()
 
     state = {
         errorMessage: null,
         formData: {
-            title: "",
-            description: "",
-            type: "",
-            dateNeeded: "",
-            status: "",
-            zip: "",
-            email: ""
+            title: "Paint Wall",
+            description: "Paint Wall desc",
+            type: "Painting",
+            dateNeeded: "11-30-2022",
+            status: "Open",  // keep this by default; not showing this in UI on create
+            zip: "90005",
+            email: this.userEmail
         }
     }
 
@@ -62,6 +64,9 @@ class CreateJobRequest extends Component {
     }
 
     render() {
+        const params = new URLSearchParams(this.props.location.search);
+        const flashMessage = params.get('message');
+
         return (
             <div className="CreateJobRequest">
 
@@ -69,6 +74,7 @@ class CreateJobRequest extends Component {
 
                 <div className="container">
                     {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
+                    {flashMessage && <Alert variant="info">{flashMessage}</Alert>}
                 </div>
                 
                 <h3 className="text-center" >Create a Job Request</h3>
