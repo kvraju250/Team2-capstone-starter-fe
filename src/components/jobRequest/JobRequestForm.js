@@ -22,9 +22,10 @@ function JobRequestForm({ handleChange, handleSubmit, formData, isUpdate }) {
                 </Form.Group>
                 <Form.Group controlId="dateNeeded">
                     <Form.Label><strong>Date Needed:</strong></Form.Label>
-                    <Form.Control required minLength="2" onChange={handleChange} value={formData.dateNeeded} type="text" placeholder="Date Needed" />
+                    <Form.Control required minLength="2" onChange={handleChange} value={formData.dateNeeded} type="date" placeholder="Date Needed" />
                 </Form.Group>
-                <Form.Group controlId="status">
+                
+                <Form.Group controlId="status" className='d-none'>
                     <Form.Label><strong>Status:</strong></Form.Label>
                     <Form.Control required minLength="2" onChange={handleChange} value={formData.status} type="text" placeholder="Status" />
                 </Form.Group>
@@ -32,7 +33,7 @@ function JobRequestForm({ handleChange, handleSubmit, formData, isUpdate }) {
                     <Form.Label><strong>Zip:</strong></Form.Label>
                     <Form.Control required minLength="2" onChange={handleChange} value={formData.zip} type="text" placeholder="Zip" />
                 </Form.Group>
-                <Form.Group controlId="email">
+                <Form.Group controlId="email" className='d-none'>
                     <Form.Label><strong>E-mail:</strong></Form.Label>
                     <Form.Control required onChange={handleChange} value={formData.email} type="email" placeholder="Email" />
                 </Form.Group>
