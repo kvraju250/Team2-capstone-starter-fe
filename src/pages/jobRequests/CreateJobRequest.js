@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Alert from 'react-bootstrap/Alert';
 import Header from "../../components/header/Header";
 import JobRequestForm from "../../components/jobRequest/JobRequestForm";
-import { generateAuthHeader, getUserEmail } from "../../utils/authHelper";
+import { generateAuthHeader, getUserEmail, isAuthenticated } from "../../utils/authHelper";
 
 class CreateJobRequest extends Component {
 
@@ -70,7 +70,7 @@ class CreateJobRequest extends Component {
         return (
             <div className="CreateJobRequest">
 
-                <Header/>
+                <Header isAuthenticated={isAuthenticated()} />
 
                 <div className="container">
                     {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
