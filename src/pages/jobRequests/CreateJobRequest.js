@@ -3,6 +3,7 @@ import Alert from 'react-bootstrap/Alert';
 import Header from "../../components/header/Header";
 import JobRequestForm from "../../components/jobRequest/JobRequestForm";
 import { generateAuthHeader, getUserEmail, isAuthenticated } from "../../utils/authHelper";
+import mustBeAuthenticated from "../../redux/hoc/mustBeAuthenticated";
 
 class CreateJobRequest extends Component {
 
@@ -11,12 +12,12 @@ class CreateJobRequest extends Component {
     state = {
         errorMessage: null,
         formData: {
-            title: "Paint Wall",
-            description: "Paint Wall desc",
-            type: "Painting",
-            dateNeeded: "11-30-2022",
+            title: "",
+            description: "",
+            type: "",
+            dateNeeded: "",
             status: "Open",  // keep this by default; not showing this in UI on create
-            zip: "90005",
+            zip: "",
             email: this.userEmail
         }
     }
@@ -89,4 +90,4 @@ class CreateJobRequest extends Component {
     }
 }
 
-export default CreateJobRequest
+export default mustBeAuthenticated(CreateJobRequest)

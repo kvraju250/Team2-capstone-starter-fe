@@ -49,12 +49,12 @@ class JobRequests extends Component {
 
                 {/* map over things and produce JSX */}
 
-                <ul>
+                {/* <ul>
                 {this.state.jobRequests.map((jobRequest, idx) => {
                     return <li key={idx}>{jobRequest.title}</li>
                     }
                 )}
-                </ul>
+                </ul> */}
 
                 <JobRequestGridCards jobRequests={this.state.jobRequests}/>
 
