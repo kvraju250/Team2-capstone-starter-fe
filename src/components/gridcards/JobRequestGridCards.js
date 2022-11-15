@@ -2,9 +2,18 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import {withRouter } from "react-router-dom";
 
 function JobRequestGridCards(props) {
     
+   
+   let handelClick = (event) => {
+
+    console.log(event.target.id)
+    props.history.push(`/createappointment?JobReqID=${event.target.id}`)
+
+   }
+
     return (
         <div className="JobRequestGridCards container mb-3">
             <Row xs={1} lg={3} className="g-4">
@@ -19,7 +28,7 @@ function JobRequestGridCards(props) {
                                 <Card.Text>{jobRequest.description}</Card.Text>
                                 <Card.Text>{jobRequest.type}</Card.Text>
                                 <Card.Text>{jobRequest.dateNeeded}</Card.Text>
-                                <Button variant="primary">HelpyourBuddy</Button>
+                                <Button id={jobRequest._id} variant="primary" onClick={handelClick}>HelpyourBuddy</Button>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -29,4 +38,4 @@ function JobRequestGridCards(props) {
     );
 }
 
-export default JobRequestGridCards;
+export default withRouter(JobRequestGridCards);
