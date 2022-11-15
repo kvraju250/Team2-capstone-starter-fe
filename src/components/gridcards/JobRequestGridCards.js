@@ -10,7 +10,7 @@ function JobRequestGridCards(props) {
    let handelClick = (event) => {
 
     console.log(event.target.id)
-    props.history.push(`/createappointment?JobReqID=${event.target.id}`)
+    props.history.push(`/createappointment/${event.target.id}`)
 
    }
 

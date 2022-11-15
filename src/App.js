@@ -63,7 +63,7 @@ function App() {
         />
          <Route
           exact
-          path="/createappointment"
+          path="/createappointment/:jobReqID"
           component={CreateAppointment}
         />
         <Route
