@@ -13,14 +13,14 @@ function CreateApptForm({ handleChange, handleSubmit, formData }) {
                 
                 <Form.Group controlId="jobRequestID">
                     <Form.Label><strong>JobRequestID:</strong></Form.Label>
-                    <Form.Control required minLength="2" onChange={handleChange} value={formData.jobRequestID} type="text" placeholder="Jobreqid" />
+                    <Form.Control required disabled="true" minLength="2" onChange={handleChange} value={formData.jobRequestID} type="text" placeholder="Jobreqid" />
                 </Form.Group>               
                 <Form.Group controlId="assignedUserEmail">
                     <Form.Label><strong>AssignedUserEmail:</strong></Form.Label>
-                    <Form.Control required minLength="2" value={formData.assignedUserEmail} type="text" placeholder="email" />
+                    <Form.Control required disabled="true" minLength="2" value={formData.assignedUserEmail} type="text" placeholder="email" />
                 </Form.Group>
                 <Form.Group controlId="date">
-                    <Form.Label><strong>Date:</strong></Form.Label>
+                    <Form.Label><strong>AvailableTime:</strong></Form.Label>
                                 {/* <DatePicker
                                     selected={values.date}
                                     onChange={(e) => {
@@ -31,7 +31,7 @@ function CreateApptForm({ handleChange, handleSubmit, formData }) {
                                     minDate={today}
                                    
                                 /> */}
-                 <Form.Control required minLength="2" onChange={handleChange} value={formData.date} type="Date" placeholder="Date" /> 
+                 <Form.Control required minLength="2" onChange={handleChange} value={formData.date} type="datetime-local" placeholder="Date" /> 
                 </Form.Group>                
 
                 <Button variant="primary" type="submit">

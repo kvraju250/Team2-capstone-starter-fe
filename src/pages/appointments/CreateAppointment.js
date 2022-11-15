@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Alert from 'react-bootstrap/Alert';
-import { generateAuthHeader } from "../../utils/authHelper";
-import { getUserEmail } from "../../utils/authHelper";
-
+import { generateAuthHeader,getUserEmail } from "../../utils/authHelper";
 import mustBeAuthenticated from "../../redux/hoc/mustBeAuthenticated";
 
 import Header from "../../components/header/Header";
@@ -11,18 +9,21 @@ import CreateApptForm from "../../components/appointment/CreateApptForm";
 
 class CreateAppointment extends Component {
 
-     userEmail = getUserEmail()
+      
+     
+     
     state = {
         errorMessage: null,
         formData: {
-            jobRequestID: "",            
-            assignedUserEmail: this.userEmail,
+            jobRequestID: this.props.match.params.jobReqID,            
+            assignedUserEmail: getUserEmail(),
             date: "",
 
         }      
 
 
     }
+
 
     //method that handles updating the data in state that matches the data in the form
     //runs everytime a form field changes
@@ -41,7 +42,9 @@ class CreateAppointment extends Component {
     handleSubmit = (event) => {
 
         //prevent the form from refreshing the page
-        event.preventDefault();        
+        event.preventDefault();   
+        
+        
 
         //get API url from the environment variables
         const apiURL = process.env.REACT_APP_API_URL
@@ -62,7 +65,7 @@ class CreateAppointment extends Component {
             const message = "Your Appointment details saved successfully"
             
             //programatically redirect to another route on success
-            this.props.history.push(`/login?message=${message}`)
+            this.props.history.push(`/home?message=${message}`)
         })
         .catch(e => console.log(e.message)) //console.log any errors if the previous steps fail
 
@@ -70,6 +73,8 @@ class CreateAppointment extends Component {
 
 
     render() {
+
+        console.log(this.props)
         return (
             <div className="CreateAppt">
 
