@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import JobRequestGridCards from "../../components/gridcards/JobRequestGridCards";
+import Alert from 'react-bootstrap/Alert';
 import Header from "../../components/header/Header";
 import { isAuthenticated, getUserEmail } from "../../utils/authHelper";
 import mustBeAuthenticated from "../../redux/hoc/mustBeAuthenticated";
@@ -40,6 +41,9 @@ class MyJobRequests extends Component {
     }
 
     render() {
+
+        const params = new URLSearchParams(this.props.location.search);
+        const flashMessage = params.get('message');
         return (
             <div className="MyJobRequests">
 
@@ -52,6 +56,7 @@ class MyJobRequests extends Component {
                 {/* map over things and produce JSX */}
 
                 <div className="container">
+                {flashMessage && <Alert variant="info">{flashMessage}</Alert>}
                     <ul>
                     {this.state.jobRequests.map((jobRequest, idx) => {
                         return <li key={idx}>{jobRequest.title} - {jobRequest.status}</li>

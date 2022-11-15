@@ -58,15 +58,15 @@ class CreateJobRequest extends Component {
         .then((data) => {
             const message = "Job Request created successfully!"
             //programatically redirect to another route on success
-            this.props.history.push(`/createjobrequest?message=${message}`)
+            this.props.history.push(`/myjobrequests?message=${message}`)
         })
         .catch(e => console.log(e.message)) //console.log any errors if the previous steps fail
 
     }
 
     render() {
-        const params = new URLSearchParams(this.props.location.search);
-        const flashMessage = params.get('message');
+        // const params = new URLSearchParams(this.props.location.search);
+        // const flashMessage = params.get('message');
 
         return (
             <div className="CreateJobRequest">
@@ -75,7 +75,7 @@ class CreateJobRequest extends Component {
 
                 <div className="container">
                     {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
-                    {flashMessage && <Alert variant="info">{flashMessage}</Alert>}
+                    {/* {flashMessage && <Alert variant="info">{flashMessage}</Alert>} */}
                 </div>
                 
                 <h3 className="text-center" >Create a Job Request</h3>

@@ -65,7 +65,7 @@ class CreateAppointment extends Component {
             const message = "Your Appointment details saved successfully"
             
             //programatically redirect to another route on success
-            this.props.history.push(`/home?message=${message}`)
+            this.props.history.push(`/myappointments?message=${message}`)
         })
         .catch(e => console.log(e.message)) //console.log any errors if the previous steps fail
 
@@ -75,6 +75,7 @@ class CreateAppointment extends Component {
     render() {
 
         console.log(this.props)
+       
         return (
             <div className="CreateAppt">
 
@@ -83,6 +84,7 @@ class CreateAppointment extends Component {
 
                 <div className="container">
                     {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
+                    
                 </div>
                 
                 <h3 className="text-center" >Create an Appointment</h3>
