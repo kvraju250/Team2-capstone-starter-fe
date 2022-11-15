@@ -10,6 +10,7 @@ import JobRequests from "./pages/jobRequests/JobRequests";
 import MyJobRequests from "./pages/jobRequests/MyJobRequests";
 import CreateAppointment from "./pages/appointments/CreateAppointment";
 import CreateJobRequest from "./pages/jobRequests/CreateJobRequest";
+import MyAppointments from "./pages/appointments/MyAppointments";
 
 function App() {
   return (
@@ -24,6 +25,11 @@ function App() {
           exact
           path="/myjobrequests"
           component={MyJobRequests}
+        />
+        <Route
+          exact
+          path="/myappointments"
+          component={MyAppointments}
         />
         <Route
           exact
