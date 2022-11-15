@@ -62,7 +62,12 @@ class MyAppointments extends Component {
                 {flashMessage && <Alert variant="info">{flashMessage}</Alert>}
                     <ul>
                     {this.state.appointments.map((appointment, idx) => {
-                        return <li key={idx}>{appointment.jobRequestID} - {appointment.date}</li>
+                        return <li key={idx}>{appointment.jobRequestData.title}: {appointment.jobRequestID} - {appointment.date}</li>
+
+
+                        
+
+                        // return <li key={idx}>{appointment.title}: {appointment.appointments_full[0].jobRequestID} - {appointment.date}</li>
                         }
                     )}
                     </ul>
