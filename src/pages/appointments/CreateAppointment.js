@@ -19,6 +19,9 @@ class CreateAppointment extends Component {
             assignedUserEmail: getUserEmail(),
             date: "",
 
+        },
+        jobData: {
+            status: "Scheduled"
         }      
 
 
@@ -68,6 +71,17 @@ class CreateAppointment extends Component {
             this.props.history.push(`/myappointments?message=${message}`)
         })
         .catch(e => console.log(e.message)) //console.log any errors if the previous steps fail
+
+
+        fetch(`${apiURL}/api/jobrequests/${this.state.formData.jobRequestID}`, {
+            method: "PUT", //make sure whe set our method to POST when creating records
+            headers: {
+                'content-type': 'application/json' ,//make sure we set the content-type headers so the API knows it is recieveing JSON data
+                ...generateAuthHeader()
+            },
+            body: JSON.stringify(this.state.jobData) //send our data form state int he body of the request
+        })
+        .then((response) => response.json())
 
     }
 
