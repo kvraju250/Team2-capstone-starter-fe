@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "../../components/header/Header";
+import Alert from 'react-bootstrap/Alert';
 import { generateAuthHeader, isAuthenticated, getUserEmail } from "../../utils/authHelper";
 import mustBeAuthenticated from "../../redux/hoc/mustBeAuthenticated";
 
@@ -43,6 +44,9 @@ class MyAppointments extends Component {
     }
 
     render() {
+
+        const params = new URLSearchParams(this.props.location.search);
+        const flashMessage = params.get('message');
         return (
             <div className="MyAppointments">
 
@@ -55,6 +59,7 @@ class MyAppointments extends Component {
                 {/* map over things and produce JSX */}
 
                 <div className="container">
+                {flashMessage && <Alert variant="info">{flashMessage}</Alert>}
                     <ul>
                     {this.state.appointments.map((appointment, idx) => {
                         return <li key={idx}>{appointment.jobRequestID} - {appointment.date}</li>
