@@ -57,12 +57,9 @@ class MyJobRequests extends Component {
 
                 <div className="container">
                 {flashMessage && <Alert variant="info">{flashMessage}</Alert>}
-                    <ul>
-                    {this.state.jobRequests.map((jobRequest, idx) => {
-                        return <li key={idx}>{jobRequest.title} - {jobRequest.status}</li>
-                        }
-                    )}
-                    </ul>
+
+                <JobRequestGridCards jobRequests={this.state.jobRequests}/>
+                
                 </div>
 
                 {/* <JobRequestGridCards jobRequests={this.state.jobRequests}/> */}
