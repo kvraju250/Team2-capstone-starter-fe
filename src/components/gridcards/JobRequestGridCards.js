@@ -28,6 +28,7 @@ function JobRequestGridCards(props) {
                                 <Card.Text>{jobRequest.description}</Card.Text>
                                 <Card.Text>{jobRequest.type}</Card.Text>
                                 <Card.Text>{jobRequest.dateNeeded}</Card.Text>
+                                <Card.Text>{jobRequest.status}</Card.Text>
                                 <Button id={jobRequest._id} variant="primary" onClick={handelClick}>HelpyourBuddy</Button>
                             </Card.Body>
                         </Card>

@@ -10,8 +10,7 @@ class JobRequests extends Component {
     }
 
     // runs when component loads
-    componentDidMount(){
-        console.log("componentDidMount just ran")        
+    componentDidMount(){   
         this.getJobRequests()
     }
 
@@ -55,8 +54,8 @@ class JobRequests extends Component {
                     }
                 )}
                 </ul> */}
-
-                <JobRequestGridCards jobRequests={this.state.jobRequests}/>
+                
+                <JobRequestGridCards jobRequests={this.state.jobRequests.filter(jobrequest => jobrequest.status == "Open")}/>
 
             </div>
         )
