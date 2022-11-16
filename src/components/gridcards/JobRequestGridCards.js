@@ -20,8 +20,8 @@ function JobRequestGridCards(props) {
                 {/* this array is made up - put our array here and then display it on the job request page */}
                 {/* replace the underscore with what we're working on, aka job request */}
                 {props.jobRequests.map((jobRequest, idx) => (
-                    <Col key={idx}>
-                        <Card>
+                    <Col key={idx} className='mb-4'>
+                        <Card className='h-100'>
                             {/* <Card.Img variant="top" src="https://via.placeholder.com/300" /> */}
                             <Card.Body>
                                 <Card.Title>{jobRequest.title}</Card.Title>
@@ -29,7 +29,8 @@ function JobRequestGridCards(props) {
                                 <Card.Text>{jobRequest.type}</Card.Text>
                                 <Card.Text>{jobRequest.dateNeeded}</Card.Text>
                                 <Card.Text>{jobRequest.status}</Card.Text>
-                                <Button id={jobRequest._id} variant="primary" onClick={handelClick}>HelpyourBuddy</Button>
+                                {props.location.pathname !== "/myjobrequests" ? <Button id={jobRequest._id} variant="primary" onClick={handelClick}>HelpyourBuddy</Button> : "" }                               
+                                {jobRequest.status === "Open" && props.location.pathname === "/myjobrequests" ? <Button id={jobRequest._id} variant="primary" onClick={handelClick}>Edit</Button> : ""}                             
                             </Card.Body>
                         </Card>
                     </Col>
