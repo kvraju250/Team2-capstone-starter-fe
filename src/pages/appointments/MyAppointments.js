@@ -3,6 +3,7 @@ import Header from "../../components/header/Header";
 import Alert from 'react-bootstrap/Alert';
 import { generateAuthHeader, isAuthenticated, getUserEmail } from "../../utils/authHelper";
 import mustBeAuthenticated from "../../redux/hoc/mustBeAuthenticated";
+import AppointmentGridCards from "../../components/gridcards/AppointmentGridCards";
 
 class MyAppointments extends Component {
 
@@ -60,7 +61,9 @@ class MyAppointments extends Component {
 
                 <div className="container">
                 {flashMessage && <Alert variant="info">{flashMessage}</Alert>}
-                    <ul>
+
+                <AppointmentGridCards appointments={this.state.appointments}/>
+                    {/* <ul>
                     {this.state.appointments.map((appointment, idx) => {
                         return <li key={idx}>{appointment.jobRequestData.title}: {appointment.jobRequestID} - {appointment.date}</li>
 
@@ -70,10 +73,10 @@ class MyAppointments extends Component {
                         // return <li key={idx}>{appointment.title}: {appointment.appointments_full[0].jobRequestID} - {appointment.date}</li>
                         }
                     )}
-                    </ul>
+                    </ul> */}
                 </div>
 
-                {/* <JobRequestGridCards jobRequests={this.state.jobRequests}/> */}
+                
 
             </div>
         )
