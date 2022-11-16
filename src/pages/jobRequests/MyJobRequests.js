@@ -63,11 +63,9 @@ class MyJobRequests extends Component {
                 <div className="container">
                 {flashMessage && <Alert variant="info">{flashMessage}</Alert>}
 
-                <JobRequestGridCards jobRequests={this.state.jobRequests}/>
+                <JobRequestGridCards jobRequests={this.state.jobRequests} />
                 
-                </div>
-
-                {/* <JobRequestGridCards jobRequests={this.state.jobRequests}/> */}
+                </div>                
 
             </div>
         )
