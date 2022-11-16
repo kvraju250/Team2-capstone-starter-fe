@@ -14,6 +14,11 @@ function JobRequestGridCards(props) {
 
    }
 
+   let handleEditClick = (event) => {
+    // console.log(event.target.id)
+    props.history.push(`/updatejobrequest/${event.target.id}`)
+   }
+
     return (
         <div className="JobRequestGridCards container mb-3">
             <Row xs={1} lg={3} className="g-4">
@@ -30,7 +35,7 @@ function JobRequestGridCards(props) {
                                 <Card.Text>{jobRequest.dateNeeded}</Card.Text>
                                 <Card.Text>{jobRequest.status}</Card.Text>
                                 {props.location.pathname !== "/myjobrequests" ? <Button id={jobRequest._id} variant="primary" onClick={handelClick}>HelpyourBuddy</Button> : "" }                               
-                                {jobRequest.status === "Open" && props.location.pathname === "/myjobrequests" ? <Button id={jobRequest._id} variant="primary" onClick={handelClick}>Edit</Button> : ""}                             
+                                {jobRequest.status === "Open" && props.location.pathname === "/myjobrequests" ? <Button id={jobRequest._id} variant="primary" onClick={handleEditClick}>Edit</Button> : ""}                             
                             </Card.Body>
                         </Card>
                     </Col>
