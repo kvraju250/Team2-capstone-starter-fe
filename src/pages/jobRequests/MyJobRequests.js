@@ -43,7 +43,12 @@ class MyJobRequests extends Component {
     render() {
 
         const params = new URLSearchParams(this.props.location.search);
-        const flashMessage = params.get('message');
+        let flashMessage = params.get('message');
+
+        if(this.state.jobRequests.length == 0) {
+            flashMessage = "We didn't find any job requests associated to you!"
+        }
+
         return (
             <div className="MyJobRequests">
 

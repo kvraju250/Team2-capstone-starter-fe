@@ -47,7 +47,12 @@ class MyAppointments extends Component {
     render() {
 
         const params = new URLSearchParams(this.props.location.search);
-        const flashMessage = params.get('message');
+        let flashMessage = params.get('message');
+
+        if(this.state.appointments.length == 0) {
+            flashMessage = "We didn't find any appointments associated to you!"
+        }
+
         return (
             <div className="MyAppointments">
 
