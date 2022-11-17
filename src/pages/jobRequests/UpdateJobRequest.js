@@ -49,6 +49,13 @@ class UpdateJobRequest extends Component {
             .then((data) => {
 
                 console.log(data[0])
+                console.log(data[0].dateNeeded)
+                console.log(new Date(data[0].dateNeeded).toISOString().split('T'))
+                
+                let dateSplit = new Date(data[0].dateNeeded).toISOString().split('T')
+                data[0].dateNeeded = dateSplit[0]
+                // data[0].dateNeeded = "2022-12-25T08:44"
+
                 //update state with the data from the API causing the page to re-render
                 this.setState({
                     formData: { ...this.state.formData, ...data[0] }
