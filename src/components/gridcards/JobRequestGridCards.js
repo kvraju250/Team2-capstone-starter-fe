@@ -34,7 +34,7 @@ function JobRequestGridCards(props) {
                                 <Card.Text>{jobRequest.type}</Card.Text>
                                 <Card.Text>{jobRequest.dateNeeded}</Card.Text>
                                 <Card.Text>{jobRequest.status}</Card.Text>
-                                {props.location.pathname !== "/myjobrequests" ? <Button id={jobRequest._id} variant="primary" onClick={handelClick}>HelpyourBuddy</Button> : "" }                               
+                                {props.location.pathname !== "/myjobrequests" ? <Button id={jobRequest._id} variant="primary" onClick={handelClick}>Help Your Buddy</Button> : "" }                               
                                 {jobRequest.status === "Open" && props.location.pathname === "/myjobrequests" ? <Button id={jobRequest._id} variant="primary" onClick={handleEditClick}>Edit</Button> : ""}                             
                             </Card.Body>
                         </Card>
