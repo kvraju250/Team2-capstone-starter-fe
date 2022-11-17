@@ -31,11 +31,15 @@ function JobRequestGridCards(props) {
                             <Card.Body>
                                 <Card.Title>{jobRequest.title}</Card.Title>
                                 <Card.Text>{jobRequest.description}</Card.Text>
-                                <Card.Text>{jobRequest.type}</Card.Text>
-                                <Card.Text>{jobRequest.dateNeeded}</Card.Text>
-                                <Card.Text>{jobRequest.status}</Card.Text>
-                                {props.location.pathname !== "/myjobrequests" ? <Button id={jobRequest._id} variant="primary" onClick={handelClick}>Help Your Buddy</Button> : "" }                               
-                                {jobRequest.status === "Open" && props.location.pathname === "/myjobrequests" ? <Button id={jobRequest._id} variant="primary" onClick={handleEditClick}>Edit</Button> : ""}                             
+                                <Card.Text><b>Type:</b> {jobRequest.type}</Card.Text>
+                                <Card.Text><b>Date Needed:</b> {new Date(jobRequest.dateNeeded).toDateString()}</Card.Text>
+                                {props.location.pathname === "/myjobrequests" ? <Card.Text><b>Status:</b> {jobRequest.status}</Card.Text> : ""}                                
+                                {props.location.pathname !== "/myjobrequests"
+                                    ? <div className='text-center'><Button id={jobRequest._id} variant="primary" onClick={handelClick}>Help Your Buddy</Button></div>
+                                    : "" }                               
+                                {jobRequest.status === "Open" && props.location.pathname === "/myjobrequests" 
+                                    ? <div className='text-center'><Button id={jobRequest._id} variant="primary" onClick={handleEditClick}>Edit</Button></div>
+                                    : ""}                             
                             </Card.Body>
                         </Card>
                     </Col>
