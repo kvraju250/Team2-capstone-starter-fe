@@ -37,27 +37,27 @@ class UpdateJobRequest extends Component {
         //get API url from the environment variables
         const apiURL = process.env.REACT_APP_API_URL
 
-        // //use fetch to make an API call and get a specific student (returns a promise)
-        // fetch(`${apiURL}/api/users/${email}`, {
-        //     headers: {
-        //         ...generateAuthHeader()
-        //     }
-        // })
-        //     //on success of the fetch request, turn the response that came back into JSON
-        //     .then((response) => response.json())
-        //     //on success of turnig the response into JSON (data we can work with), lets add that data to state
-        //     .then((data) => {
+        //use fetch to make an API call and get a specific student (returns a promise)
+        fetch(`${apiURL}/api/jobrequests?id=${jobRequestId}`, {
+            headers: {
+                ...generateAuthHeader()
+            }
+        })
+            //on success of the fetch request, turn the response that came back into JSON
+            .then((response) => response.json())            
+            //on success of turnig the response into JSON (data we can work with), lets add that data to state
+            .then((data) => {
 
-
-        //         //update state with the data from the API causing the page to re-render
-        //         this.setState({
-        //             formData: {...this.state.formData, ...data}
-        //         });
-        //     })
-        //     //handle any errors/failures with getting data from the API
-        //     .catch((error) => {
-        //         console.log(error)
-        //     });
+                console.log(data[0])
+                //update state with the data from the API causing the page to re-render
+                this.setState({
+                    formData: {...this.state.formData, ...data[0]}
+                });
+            })
+            //handle any errors/failures with getting data from the API
+            .catch((error) => {
+                console.log(error)
+            });
     }
 
     //method that handles updating the data in state that matches the data in the form

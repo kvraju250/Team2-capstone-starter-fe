@@ -22,7 +22,7 @@ function JobRequestForm({ handleChange, handleSubmit, formData, isUpdate }) {
                 </Form.Group>
                 <Form.Group controlId="dateNeeded">
                     <Form.Label><strong>Date Needed:</strong></Form.Label>
-                    <Form.Control required minLength="2" onChange={handleChange} value={formData.dateNeeded} type="date" placeholder="Date Needed" />
+                    <Form.Control required minLength="2" onChange={handleChange} value={formData.dateNeeded} type="datetime-local" placeholder="Date Needed" />
                 </Form.Group>
                 
                 <Form.Group controlId="status" className='d-none'>
