@@ -24,11 +24,12 @@ function AppointmentGridCards(props) {
                         <Card>
                             {/* <Card.Img variant="top" src="https://via.placeholder.com/300" /> */}
                             <Card.Body>
-                                <Card.Title>Job Title:{appointment.jobRequestData.title}</Card.Title>
-                                <Card.Text>Job Description:{appointment.jobRequestData.description}</Card.Text>
-                                <Card.Text>Job Type:{appointment.jobRequestData.type}</Card.Text>
-                                <Card.Text>Job Status:{appointment.jobRequestData.status}</Card.Text>
-                                <Card.Text>Job Requester Email:{appointment.jobRequestData.email}</Card.Text>
+                                <Card.Title>{appointment.jobRequestData.title}</Card.Title>
+                                <Card.Text>{appointment.jobRequestData.description}</Card.Text>
+                                <Card.Text><b>Type:</b> {appointment.jobRequestData.type}</Card.Text>
+                                <Card.Text><b>Status:</b> {appointment.jobRequestData.status}</Card.Text>
+                                <Card.Text><b>Job Requester:</b> {appointment.jobRequestData.email}</Card.Text>
+                                <Card.Text><b>Date Scheduled:</b> {new Date(appointment.date).toDateString()}</Card.Text>
                                 {/* <Card.Text>{jobRequest.description}</Card.Text>
                                 <Card.Text>{jobRequest.type}</Card.Text>
                                 <Card.Text>{jobRequest.dateNeeded}</Card.Text>
